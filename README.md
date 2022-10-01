@@ -24,7 +24,7 @@ On the navigation bar at the top of the screen, clicking "Achievements" will nav
 
 I made RPG Clicker to learn how to use the Django framework. I hope you enjoy it as much as I enjoyed making it!
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/QkWwBIPsmo8)
 
 # Web Pages
 
