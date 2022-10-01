@@ -1,5 +1,4 @@
 from django.shortcuts import render
-import time
 
 # list of dictionaries, stores all achievements
 all_achievements = [
