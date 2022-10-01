@@ -1,0 +1,8 @@
+{% extends 'game/base.html' %}
+{% block content %}
+<h1>Achievements</h1>
+    {% for achievement in achievements %}
+        <h2>{{ achievement.name }}: {{ achievement.xp_requirement }} XP</h2>
+        <p>{{ achievement.description }}</p>
+    {% endfor %}
+{% endblock content %}

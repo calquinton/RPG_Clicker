@@ -1,0 +1,126 @@
+{% extends 'game/base.html' %}
+{% block content %}
+    <div class="xpArea">
+        <h1>RPG Clicker</h1>
+        <h2>XP: <div id="currentXp"></div></h2>
+        <button type="button" id="xpButton">Grind XP</button>
+    </div>
+
+    <h3>Store:</h3>
+    <p>Overworlds (1 XP/s): <div id="currentOverworlds"></div></p>
+    <button type="button" id="overworldButton">Purchase an Overworld (100 XP)</button>
+    <p>Towns (2 XP/s): <div id="currentTowns"></div></p>
+    <button type="button" id="townButton">Purchase a Town (200 XP)</button>
+    <p>Cities (4 XP/s): <div id="currentCities"></div></p>
+    <button type="button" id="cityButton">Purchase a City (400 XP)</button>
+    <p>Castles (8 XP/s): <div id="currentCastles"></div></p>
+    <button type="button" id="castleButton">Purchase a Castle (800 XP)</button>
+    <p>Dungeons (16 XP/s): <div id="currentDungeons"></div></p>
+    <button type="button" id="dungeonButton">Purchase a Dungeon (1600 XP)</button>
+
+    <script>
+        // variables
+        let xp = 0;
+        let overworlds = 0;
+        let towns = 0;
+        let cities = 0;
+        let castles = 0;
+        let dungeons = 0;
+        let xpPerSecond = 0;
+
+        // when the Grind XP button is pressed:
+        document.getElementById("xpButton").onclick = () => {
+            // increment xp by one
+            xp = xp + 1;
+            // assign new xp value to XP on page
+            document.getElementById("currentXp").innerText = xp;
+        };
+
+        // when the purchase an overworld button is pressed:
+        document.getElementById("overworldButton").onclick = () => {
+            // verify cost is met
+            if (xp >= 100) {
+                // decrease xp by 100
+                xp -= 100;
+                document.getElementById("currentXp").innerText = xp;
+                // increment overworld by one
+                overworlds = overworlds + 1;
+                //increment xpPerSecond by 1
+                xpPerSecond = xpPerSecond + 1;
+                // assign new overworld value to Overworlds on page
+                document.getElementById("currentOverworlds").innerText = overworlds;
+            };
+        };
+
+        // when the purchase a town button is pressed:
+        document.getElementById("townButton").onclick = () => {
+            // verify cost is met
+            if (xp >= 200) {
+                // decrease xp by 200
+                xp -= 200;
+                document.getElementById("currentXp").innerText = xp;
+                // increment town by one
+                towns = towns + 1;
+                //increment xpPerSecond by 2
+                xpPerSecond = xpPerSecond + 2;
+                // assign new town value to towns on page
+                document.getElementById("currentTowns").innerText = towns;
+            };
+        };
+
+        // when the purchase a city button is pressed:
+        document.getElementById("cityButton").onclick = () => {
+            // verify cost is met
+            if (xp >= 400) {
+                // decrease xp by 400
+                xp -= 400;
+                document.getElementById("currentXp").innerText = xp;
+                // increment city by one
+                cities = cities + 1;
+                //increment xpPerSecond by 4
+                xpPerSecond = xpPerSecond + 4;
+                // assign new city value to citys on page
+                document.getElementById("currentCities").innerText = cities;
+            };
+        };
+
+        // when the purchase a castle button is pressed:
+        document.getElementById("castleButton").onclick = () => {
+            // verify cost is met
+            if (xp >= 800) {
+                // decrease xp by 800
+                xp -= 800;
+                document.getElementById("currentXp").innerText = xp;
+                // increment castle by one
+                castles = castles + 1;
+                //increment xpPerSecond by 8
+                xpPerSecond = xpPerSecond + 8;
+                // assign new castle value to castles on page
+                document.getElementById("currentCastles").innerText = castles;
+            };
+        };
+
+        // when the purchase a dungeon button is pressed:
+        document.getElementById("dungeonButton").onclick = () => {
+            // verify cost is met
+            if (xp >= 1600) {
+                // decrease xp by 1600
+                xp -= 1600;
+                document.getElementById("currentXp").innerText = xp;
+                // increment dungeon by one
+                dungeons = dungeons + 1;
+                //increment xpPerSecond by 16
+                xpPerSecond = xpPerSecond + 16;
+                // assign new dungeon value to dungeons on page
+                document.getElementById("currentDungeons").innerText = dungeons;
+            };
+        };
+
+        // game loop (runs every second)
+        window.setInterval( () => {
+            // automatically raises xp based on auto farmers purchased
+            xp += xpPerSecond;
+            document.getElementById("currentXp").innerText = xp;
+        }, 1000);
+    </script>
+{% endblock content %}
