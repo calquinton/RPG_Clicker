@@ -48,5 +48,6 @@ On the achievements page, you will find many achievements listed. These achievem
 # Future Work
 
 * Improve web page appearances.
+* Improve code efficiency.
 * Implement Django database to allow for saved games.
 * Implement dynamic achievements page.
